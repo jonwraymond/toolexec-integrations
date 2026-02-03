@@ -3,7 +3,11 @@
   "release-type": "go",
   "packages": {
     ".": {
-      "changelog-path": "CHANGELOG.md"
+      "changelog-path": "CHANGELOG.md",
+      "exclude-paths": [
+        "VERSIONS.md",
+        "README.md"
+      ]
     }
   },
   "changelog-sections": [
