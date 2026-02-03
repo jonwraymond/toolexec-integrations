@@ -12,7 +12,26 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Detect release-eligible changes
+        id: changes
+        run: |
+          set -euo pipefail
+          BASE="${{ github.event.before }}"
+          if [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          CHANGED=$(git diff --name-only "$BASE" "${{ github.sha }}")
+          if echo "$CHANGED" | grep -Ev '^(VERSIONS\.md|README\.md)$' >/dev/null; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Release Please
+        if: steps.changes.outputs.run == 'true'
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
