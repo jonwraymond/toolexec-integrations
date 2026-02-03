@@ -1,0 +1,70 @@
+site_name: toolexec-integrations
+site_description: Integration clients for toolexec runtime backends (Kubernetes, Proxmox, remote HTTP).
+site_url: https://jonwraymond.github.io/toolexec-integrations/
+repo_name: jonwraymond/toolexec-integrations
+repo_url: https://github.com/jonwraymond/toolexec-integrations
+edit_uri: edit/main/docs/
+docs_dir: docs
+
+nav:
+  - Home: index.md
+  - Reference:
+      - Architecture: architecture.md
+      - Design Notes: design-notes.md
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/white-balance-sunny
+        name: Switch to light mode
+  font:
+    text: Space Grotesk
+    code: JetBrains Mono
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jonwraymond/toolexec-integrations
