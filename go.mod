@@ -3,7 +3,7 @@ module github.com/jonwraymond/toolexec-integrations
 go 1.25.6
 
 require (
-	github.com/jonwraymond/toolexec v0.2.0
+	github.com/jonwraymond/toolexec v0.2.1
 	k8s.io/api v0.35.0
 	k8s.io/apimachinery v0.35.0
 	k8s.io/client-go v0.35.0
@@ -20,8 +20,8 @@ require (
 	github.com/google/gnostic-models v0.7.0 // indirect
 	github.com/google/jsonschema-go v0.4.2 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/jonwraymond/tooldiscovery v0.2.1 // indirect
-	github.com/jonwraymond/toolfoundation v0.2.0 // indirect
+	github.com/jonwraymond/tooldiscovery v0.3.0 // indirect
+	github.com/jonwraymond/toolfoundation v0.3.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
