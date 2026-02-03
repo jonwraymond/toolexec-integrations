@@ -25,7 +25,7 @@ jobs:
             exit 0
           fi
           CHANGED=$(git diff --name-only "$BASE" "${{ github.sha }}")
-          if echo "$CHANGED" | grep -Ev '^(VERSIONS\.md|README\.md)$' >/dev/null; then
+          if echo "$CHANGED" | grep -Ev '^(VERSIONS\.md|README\.md|docs/|\.github/)' >/dev/null; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
