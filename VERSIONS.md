@@ -3,7 +3,6 @@
 - `toolfoundation`: `v0.2.0`
 - `tooldiscovery`: `v0.2.2`
 - `toolexec`: `v0.2.0`
-- `toolexec-integrations`: `v0.1.0`
 - `toolcompose`: `v0.1.2`
 - `toolops`: `v0.1.4`
 - `toolprotocol`: `v0.1.5`
