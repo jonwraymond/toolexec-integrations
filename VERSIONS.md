@@ -7,7 +7,7 @@
 - `toolops`: `v0.1.7`
 - `toolops-integrations`: `v0.1.0`
 - `toolprotocol`: `v0.1.9`
-- `metatools-mcp`: `v0.7.0`
+- `metatools-mcp`: `v0.7.1`
 - `metatools-a2a`: `v0.1.1`
 
 Generated from `ai-tools-stack/go.mod`.
