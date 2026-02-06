@@ -77,7 +77,7 @@ func NewClient(cfg Config) (*Client, error) {
 		}
 		transport := http.DefaultTransport.(*http.Transport).Clone()
 		if cfg.TLSSkipVerify {
-			transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+			transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true} // #nosec G402 -- explicitly opt-in for local/test endpoints
 		}
 		client = &http.Client{
 			Transport: transport,

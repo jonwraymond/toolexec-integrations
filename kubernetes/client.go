@@ -303,7 +303,12 @@ func (c *Client) readLogs(ctx context.Context, namespace, podName, container str
 	if err != nil {
 		return "", fmt.Errorf("%w: logs: %v", ErrPodExecutionFailed, err)
 	}
-	defer stream.Close()
+	defer func() {
+		// Best-effort cleanup. The stream is already fully read below; close errors are not actionable here.
+		if err := stream.Close(); err != nil {
+			_ = err // explicitly ignore close errors
+		}
+	}()
 
 	data, err := io.ReadAll(stream)
 	if err != nil {

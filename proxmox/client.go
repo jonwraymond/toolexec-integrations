@@ -73,7 +73,7 @@ func NewClient(cfg ClientConfig, logger Logger) (*Client, error) {
 		}
 		transport := http.DefaultTransport.(*http.Transport).Clone()
 		if cfg.TLSSkipVerify {
-			transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+			transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true} // #nosec G402 -- explicitly opt-in for local/test endpoints
 		}
 		client = &http.Client{
 			Transport: transport,
@@ -127,7 +127,11 @@ func (c *Client) doJSON(ctx context.Context, method, path string, body io.Reader
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err := resp.Body.Close(); err != nil {
+			_ = err // explicitly ignore close errors
+		}
+	}()
 
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
 		data, _ := io.ReadAll(resp.Body)
